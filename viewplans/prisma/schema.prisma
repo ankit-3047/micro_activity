@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Plan {
+  id         Int      @id @default(autoincrement())
+  planName   String
+  amount     Int
+  locationId Int?     // Foreign key to Location (optional, can be null)
+}
